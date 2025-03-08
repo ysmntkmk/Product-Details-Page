@@ -8,14 +8,11 @@ export default function StoreFront() {
   const { get, loading } = useFetch(
     'https://router-12f10-default-rtdb.europe-west1.firebasedatabase.app/'
   )
-
   useEffect(() => {
-    get('products.json')
-      .then((data) => {
-        setProducts(data)
-      })
-      .catch((error) => console.log(error))
-  }, [])
+    get("products.json")
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Ürünler yüklenirken hata oluştu:", error));
+  }, []);
 
   return (
     <div className='store-front'>
